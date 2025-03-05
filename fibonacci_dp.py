@@ -24,6 +24,12 @@ def fib2(n, memo):
 		result = fib2(n-1, memo) + fib2(n-2, memo)
 	memo[n-1] = result
 	return result
-	
-print(fib2(1000, [0]*1000))
+
+def fib3(n):
+	if n <= 2:
+		return 1
+	bottom_up = [1,1] + [0] * (n-2)
+	pass
+
+print(fib2(1000, [None]*1000))
 print("--- %s seconds ---" % (time.time() - start_time))
