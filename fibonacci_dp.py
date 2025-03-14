@@ -28,8 +28,11 @@ def fib2(n, memo):
 def fib3(n):
 	if n <= 2:
 		return 1
-	bottom_up = [1,1] + [0] * (n-2)
-	pass
+	bottom_up = [1,1] + [None] * (n-2)
+	for i in range(2, n):
+		bottom_up[i] = bottom_up[i-1] + bottom_up[i-2]
+	return bottom_up[-1]
 
-print(fib2(1000, [None]*1000))
+# print(fib2(1000, [None]*1000))
+print(fib3(1000))
 print("--- %s seconds ---" % (time.time() - start_time))
