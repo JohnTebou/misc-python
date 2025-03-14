@@ -17,8 +17,26 @@ def findpeak(arr):
 			r = m - 1
 	return ans
 
+# variation using the first false
+def findpeak2(arr):
+	l = 0
+	r = len(arr) - 1
+	ans = arr[0]
+
+	while l <= r:
+		m = l + (r - l) // 2
+		if arr[m] < arr[m+1] if m < len(arr) - 1 else float("-inf"):
+			l = m + 1
+		else:
+			ans = arr[m]
+			r = m - 1
+	return ans
+
 print(findpeak(arr1))
+print(findpeak2(arr1))
+
 print(findpeak(arr2))
+print(findpeak2(arr2))
 
 # don't use ceiling/floor to calculate middle if not working
 # with indices or necessarily integral values
